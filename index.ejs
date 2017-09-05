@@ -97,5 +97,13 @@
     </script>
     <script async defer src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
     <% } %>
+
+    <% for (item of htmlWebpackPlugin.options.inlineScripts) { %>
+  	<script
+      <% if (item.id) { %> id="<%= item.id %>" <% } %>
+    >
+      <%= item.body %>
+    </script>
+    <% } %>
   </body>
 </html>
